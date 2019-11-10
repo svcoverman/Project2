@@ -1,31 +1,24 @@
 DROP DATABASE IF EXISTS mygaragedb;
 CREATE DATABASE mygaragedb;
+USE mygaragedb;
 
 CREATE TABLE users
 (
     id int not null auto_increment,
-    users_name varchar(50) not null,
+    name varchar(50) not null,
     primary key (id)
 );
 
-create table carsWant
+create table cars
 (
-    car_year int not null,
-    car_make varchar (50) not null,
-    car_model varchar (50) not null,
-    car_trim varchar (50) not null,
+    id int not null auto_increment,
+    year int not null,
+    make varchar (50) not null,
+    model varchar (50) not null,
+    trim varchar (50),
+    mileage int,
+    user_key int not null,
+    is_owned boolean not null,
     primary key (id),
-    foreign key (users_name) references users(id)
+    foreign key (user_key) references users(id)
 );
-
-create table warsHave
-(
-    car_year int not null,
-    car_make varchar (50) not null,
-    car_model varchar (50) not null,
-    car_trim varchar (50) not null,
-    primary key (id),
-    foreign key (users_name) references users(id)
-);
-
-
