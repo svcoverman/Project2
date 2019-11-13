@@ -2,8 +2,16 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        
-        <h2>This is our Home Page!</h2>
+      <nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">My Garage</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Wishlist</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Registration/Login</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <h2>My Garage</h2>
         
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
@@ -25,6 +33,123 @@
           </li>
           {{/each}}
         </ul>
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <h2>Wishlist</h2>
+        
+        <form class="clearfix mb-4" action="POST">
+          <div class="form-group">
+            <label for="example-text">Example Text</label>
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+          </div>
+          <div class="form-group">
+            <label for="example-description">Example Description</label>
+            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+          </div>
+          <button id="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+        <h3>Examples:</h3>
+        <ul id="example-list" class="list-group">
+          {{#each examples}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="example/{{this.id}}">{{this.text}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+        </ul>
+  </div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+     <div class="container" id="user-sign-in">
+    <div class="modal-content">
+      <div class="row">
+        <div class="col s12">
+          <button class="btn-small right no-signin" id="top-exit-btn" type="submit" name="action" style="display: none">X</button>
+          <h4 class="center">Sign in to save your favorite searches.</h4>
+        </div>
+      </div>
+      <div class="row userSignIn">
+
+        <div id="login-btns">
+          <div class="row" style="margin-bottom: 10px;">
+            <div class="col s12">
+              <div class="center">
+                <button id="first-sign-in-new" class="btn-large waves-effect waves-light blue lighten-1" type="submit"
+                  name="action">Create a New Account
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 0px;">
+
+            <div class="center">
+              <p>OR</p>
+            </div>
+
+          </div>
+          <div class="row" style="margin-bottom: 20px;">
+            <div class="col s12">
+              <div class="center">
+                <button id="first-sign-in" class="btn-large waves-effect waves-light blue lighten-1" type="submit" name="action">Log
+                  In
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 0px;">
+            <div class="col s12">
+              <div class="center">
+                <button id="cancel-sign-in" class="btn-small no-signin" type="submit" name="action">Continue Without
+                  Signing In
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="create-account" class="col s12" style="display: none">
+          <span>Create a new account</span>
+
+          <form class="new-user">
+            <label for="username">Username</label>
+            <input placeholder="Username" id="new-username" type="text" class="validate">
+            <label for="email">Email</label>
+            <input placeholder="Email" id="new-email" type="email" class="validate">
+            <label for="password">Password</label>
+            <input placeholder="Password" id="new-password" type="password" class="validate">
+            <br>
+            <div class="center">
+              <button class="btn waves-effect waves-light blue lighten-1" id="new-member" type="submit" name="action">Create
+                New Account
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="col s12" id="current-user" style="display: none">
+          <span>Log In</span>
+
+          <form class="existing-user">
+            <label for="email">Email</label>
+            <input placeholder="Email" id="email" type="email" class="validate">
+            <label for="password">Password</label>
+            <input placeholder="Password" id="password" type="password" class="validate">
+            <br>
+            <div class="center">
+              <button class="btn waves-effect waves-light blue lighten-1" id="sign-in" type="submit" name="action">Log
+                In
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+    
+
+      
       </div>
     </div>
   </div>
