@@ -1,9 +1,15 @@
+
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
-
+var options = ["Audi", "BMW", "Volvo", "Chevrolet", "Toyota", "Bentley", "Opel", "Cadillac", "Aston Martin",
+"Ford", "Chrysler", "Honda", "Hyundai", "Mazda", "Maserati", "Volkswagen", "Buick", "Mercedes"];
+$('#select').empty();
+$.each(options, function(i, p) {
+    $('#select').append($('<option></option>').val(p).html(p));
+});
 
 // The API object contains methods for each kind of request we'll make
 var API = {
