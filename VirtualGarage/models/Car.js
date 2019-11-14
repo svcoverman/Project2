@@ -14,6 +14,9 @@ const Car = db.define('car', {
   mileage: {
     type: Sequelize.STRING
   },
+  VIN: {
+    type: Sequelize.STRING
+  },
   contact_email: {
     type: Sequelize.STRING
   }
