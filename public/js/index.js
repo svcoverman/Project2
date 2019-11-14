@@ -4,12 +4,6 @@ var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
-var options = ["Audi", "BMW", "Volvo", "Chevrolet", "Toyota", "Bentley", "Opel", "Cadillac", "Aston Martin",
-"Ford", "Chrysler", "Honda", "Hyundai", "Mazda", "Maserati", "Volkswagen", "Buick", "Mercedes"];
-$('#select').empty();
-$.each(options, function(i, p) {
-    $('#select').append($('<option></option>').val(p).html(p));
-});
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -87,6 +81,7 @@ var handleFormSubmit = function(event) {
 
   $exampleText.val("");
   $exampleDescription.val("");
+  
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -104,3 +99,6 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+
+
