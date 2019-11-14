@@ -24,18 +24,18 @@ router.get('/add', (req, res) => res.render('add'));
 
 // Add a gig
 router.post('/add', (req, res) => {
-  let { make, model, year, mileage, contact_email } = req.body;
+  let { make, model, year, mileage, VIN, contact_email } = req.body;
   let errors = [];
 
   // Validate Fields
   if(!make) {
-    errors.push({ text: 'Please add a title' });
+    errors.push({ text: 'Please add a make' });
   }
   if(!model) {
-    errors.push({ text: 'Please add some technologies' });
+    errors.push({ text: 'Please add a model' });
   }
   if(!year) {
-    errors.push({ text: 'Please add a description' });
+    errors.push({ text: 'Please add a year' });
   }
   if(!contact_email) {
     errors.push({ text: 'Please add a contact email' });
@@ -48,14 +48,15 @@ router.post('/add', (req, res) => {
       make, 
       model, 
       year, 
-      mileage, 
+      mileage,
+      VIN, 
       contact_email
     });
   } else {
-    if(!mileage) {
-      mileage = 'Unknown';
+    if(!VIN) {
+      VIN = 'Unknown';
     } else {
-      mileage = `${mileage}`;
+      VIN = `${VIN}`;
     }
 
     // Insert into table
@@ -63,7 +64,8 @@ router.post('/add', (req, res) => {
       make, 
       model, 
       year, 
-      mileage, 
+      mileage,
+      VIN, 
       contact_email
     })
       .then(car => res.redirect('/cars'))
@@ -82,8 +84,9 @@ router.get('/search', (req, res) => {
     where: {
       [Op.or]: [{model: { [Op.like]: '%' + term + '%' }}, 
                 {make:  { [Op.like]: '%' + term + '%' }}, 
-                {year:  { [Op.like]: '%' + term + '%' }}, 
-                {mileage:  { [Op.like]: '%' + term + '%' }}]
+                {year:  { [Op.like]: '%' + term + '%' }},
+                {VIN:  { [Op.like]: '%' + term + '%' }}, 
+                {mileage:  { [Op.like]: '%' + term + '%' }},]
     }
   })
     .then(cars => res.render('cars', { cars }))
