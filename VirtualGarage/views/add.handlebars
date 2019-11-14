@@ -1,0 +1,36 @@
+<section id="add" class="container">
+    <div class="form-wrap">
+      <h1>Add A Car</h1>
+      <p>Your contact email will be shared with registered users</p>
+      {{#each errors}}
+        <div class="error">
+          <p>{{text}}</p>
+        </div>
+      {{/each}}
+      <form action="/cars/add" method="POST" id="carform">
+        <div class="input-group">
+          <label for="make">Make</label>
+          <input type="text" name="make" id="make" class="input-box" placeholder="Ford"
+            maxlength="100" value={{make}}>
+        </div>
+        <div class="input-group">
+          <label for="model">Model</label>
+          <input type="text" name="model" id="model" class="input-box" placeholder="F-150"
+          maxlength="100" value={{model}}>
+        </div>
+        <div class="input-group">
+          <label for="year">Year</label>
+          <input type="number" name="year" id="year" class="input-box" placeholder="2020" value={{year}}>
+        </div>
+        <div class="input-group">
+          <label for="mileage">Mileage</label>
+          <input type="number" name="mileage" id="mileage" class="input-box" placeholder="Round to the nearest 10,000">{{mileage}}</input>
+        </div>
+        <div class="input-group">
+          <label for="budget">Contact Email</label>
+          <input type="email" name="contact_email" id="contactemail" class="input-box" placeholder="Enter an email" value={{contact_email}}>
+        </div>
+        <input type="submit" value="Add Car" class="btn btn-reverse">
+      </form>
+    </div>
+  </section>
