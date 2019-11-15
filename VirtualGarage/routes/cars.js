@@ -11,7 +11,7 @@ router.get('/login', (req, res) => res.render('login'));
 // Register Page
 router.get('/register', (req, res) => res.render('register'));
 
-// Get gig list
+// Get car list
 router.get('/', (req, res) => 
   Car.findAll()
     .then(cars => res.render('cars', {
@@ -19,10 +19,10 @@ router.get('/', (req, res) =>
       }))
     .catch(err => console.log(err)));
 
-// Display add gig form
+// Display add car form
 router.get('/add', (req, res) => res.render('add'));
 
-// Add a gig
+// Add a car
 router.post('/add', (req, res) => {
   let { make, model, year, mileage, VIN, contact_email } = req.body;
   let errors = [];
@@ -73,7 +73,7 @@ router.post('/add', (req, res) => {
   }
 });
 
-// Search for gigs
+// Search for cars
 router.get('/search', (req, res) => {
   let { term } = req.query;
 
@@ -91,6 +91,8 @@ router.get('/search', (req, res) => {
   })
     .then(cars => res.render('cars', { cars }))
     .catch(err => console.log(err));
+
+    
 });
 
 module.exports = router;
