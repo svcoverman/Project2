@@ -1,7 +1,7 @@
 <section id="add" class="container">
     <div class="form-wrap">
       <h1>Add A Car</h1>
-      <p>Your contact email will be shared with registered users</p>
+      <p>Your contact email will be public</p>
       {{#each errors}}
         <div class="error">
           <p>{{text}}</p>
@@ -28,7 +28,7 @@
         </div>
         <div class="input-group">
           <label for="VIN">VIN</label>
-          <input type="text" name="VIN" id="VIN" class="input-box" placeholder="1234567891011">{{VIN}}</input>
+          <input type="text" name="VIN" id="VIN" class="input-box" placeholder="Optional">{{VIN}}</input>
         </div>
         <div class="input-group">
           <label for="budget">Contact Email</label>
