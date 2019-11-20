@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
+const ajax = require('ajax');
 
 const app = express();
 
@@ -35,6 +36,7 @@ db2.authenticate()
 // Handlebars
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
@@ -76,6 +78,8 @@ app.get('/', (req, res) => res.render('index', { layout: 'main' }));
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
 app.use('/cars', require('./routes/cars'))
+
+
 
 const PORT = process.env.PORT || 3000;
 
